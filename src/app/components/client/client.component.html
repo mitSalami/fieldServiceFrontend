@@ -20,12 +20,19 @@
              name="adress" required="required" minlength="5">
     </fieldset>
 
-    <fieldset class="form-group">
+    <!--<fieldset class="form-group">
       <label>Mitarbeiter</label>
       <input type="text" #description="ngModel"
              [(ngModel)]="client.employee" class="form-control"
              name="Mitarbeiter"  minlength="4">
-    </fieldset>
+    </fieldset>-->
+
+    <mat-form-field appearance="fill">
+      <mat-label>Mitarbeiter</mat-label>
+      <mat-select *ngFor="let option of employees">
+        <mat-option value="primary">Primary</mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <fieldset class="form-group">
       <label>Telefonnummer</label>

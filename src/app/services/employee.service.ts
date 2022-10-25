@@ -31,4 +31,10 @@ export class EmployeeService {
       `${API_URL}/employee/${id}`
       , employee);
   }
+
+  deleteEmployee(id: any){
+    return this.http.delete(
+      `${API_URL}/employee/${id}`
+    )
+  }
 }

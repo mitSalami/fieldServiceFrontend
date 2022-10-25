@@ -1,11 +1,38 @@
 <h1>Mitarbeiter</h1>
 <div class="container">
-  <form (ngSubmit)="!clientForm.invalid && saveEmployee()" #clientForm="ngForm">
+  <form (ngSubmit)="!employeeForm.invalid && saveEmployee()" #employeeForm="ngForm">
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
-    <input matInput placeholder="Placeholder">
+    <input matInput placeholder="Placeholder" type = "text" [(ngModel)]="employee.name" name="name" #description="ngModel">
   </mat-form-field>
 
+    <mat-form-field appearance="fill">
+      <mat-label>Telenfonnummer</mat-label>
+      <input matInput placeholder="Placeholder" type = "text" [(ngModel)]="employee.phoneNumber" name="phoneNumber" #description="ngModel">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Adresse</mat-label>
+      <input matInput placeholder="Placeholder" type = "text" [(ngModel)]="employee.adresse" name="adresse" #description="ngModel">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Farbe</mat-label>
+      <input matInput placeholder="Placeholder" type = "text" [(ngModel)]="employee.color" name="color" #description="ngModel">
+    </mat-form-field>
+
     <button type="submit" class="btn btn-success">Save</button>
+    <button class="btn btn-danger" (click)="deleteEmployee()" type="button">Delete</button>
   </form>
+
+  <table class="table">
+    <thead>
+    <th>Kunde</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of employee.clientList">
+      <td>{{item.name}}</td>
+    </tr>
+    </tbody>
+  </table>
 </div>

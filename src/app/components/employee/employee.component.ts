@@ -23,9 +23,9 @@ export class Employee{
 })
 export class EmployeeComponent implements OnInit {
 
-  private employees:any;
-  private id: any;
-  private employee: any;
+   employees:any;
+   id: any;
+   employee: any;
 
   constructor(
     private employeeService:EmployeeService,
@@ -48,29 +48,32 @@ export class EmployeeComponent implements OnInit {
 
   saveEmployee() {
     if(this.id == -1) { //=== ==
+      console.log(this.employee)
       this.employeeService.createEmployee(this.employee)
         .subscribe (
           data => {
             console.log(data)
-            this.router.navigate(['clients'])
+            this.router.navigate(['employeeList'])
           }
         )
     } else {
+      console.log(this.employee)
       this.employeeService.updateEmployee(this.id, this.employee)
         .subscribe (
           data => {
             console.log(data)
-            this.router.navigate(['clients'])
+            this.router.navigate(['employeeList'])
           }
         )
     }
   }
 
-  updateEmployee(id: number) {
-    this.router.navigate(['employee', id])
-  }
-
-  addEmployee() {
-    this.router.navigate(['employee',-1])
+  deleteEmployee(){
+    this.employeeService.deleteEmployee(this.id)
+      .subscribe(
+        data => {
+          this.router.navigate(['employeeList'])
+        }
+      )
   }
 }

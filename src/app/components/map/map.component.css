@@ -1,0 +1,8 @@
+.map{
+  min-height: 90%;
+  padding: 5px;
+}
+.list-group{
+  overflow-y: auto;
+  max-height: 85%;
+}

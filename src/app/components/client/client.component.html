@@ -1,0 +1,60 @@
+<H1>Kunde</H1>
+
+<div class="container">
+  <div class="alert alert-warning" *ngIf="clientForm.dirty && clientForm.invalid">Enter valid values</div>
+  <div class="alert alert-warning" *ngIf="clientForm.dirty && targetDate.invalid">Enter valid Target Date</div>
+  <div class="alert alert-warning" *ngIf="clientForm.dirty && description.invalid">Enter atleast 5 characters in Description</div>
+
+  <form (ngSubmit)="!clientForm.invalid && saveTodo()" #clientForm="ngForm">
+    <fieldset class="form-group">
+      <label>Name</label>
+      <input type="text" #description="ngModel"
+             [(ngModel)]="client.name" class="form-control"
+             name="Name" required="required" minlength="5">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label>Adresse</label>
+      <input type="text" #description="ngModel"
+             [(ngModel)]="client.adress" class="form-control"
+             name="adress" required="required" minlength="5">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label>Mitarbeiter</label>
+      <input type="text" #description="ngModel"
+             [(ngModel)]="client.employee" class="form-control"
+             name="Mitarbeiter"  minlength="4">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label>Telefonnummer</label>
+      <input type="text" #description="ngModel"
+             [(ngModel)]="client.phone" class="form-control"
+             name="description"  minlength="5">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label>Target Date</label>
+      <input type="date" #targetDate="ngModel"
+             [ngModel]="client.lastVisited | date:'yyyy-MM-dd' "
+             (ngModelChange)="client.targetDate = $event"
+             class="form-control" name="targetDate" required="" >
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Longitude</label>
+      <input type="number" #description="ngModel"
+             [(ngModel)]="client.longitude" class="form-control"
+             name="longitude" required="required" minlength="5">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Latitude</label>
+      <input type="number" #description="ngModel"
+             [(ngModel)]="client.latitude" class="form-control"
+             name="latitude" required="required" minlength="5">
+    </fieldset>
+
+
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>

@@ -1,0 +1,29 @@
+<h1>Kunden</h1>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Kundenname</th>
+        <th>Adresse</th>
+        <th>Letzter Besuch</th>
+        <th>Mitarbeiter</th>
+        <th>Telefon</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <td>{{client.name}}</td>
+        <td>{{client.adress}}</td>
+        <td>{{client.lastVisited | date | uppercase}}</td>
+        <td>{{client.employee}}</td>
+        <td>{{client.phone}}</td>
+        <td><button (click)="updateClient(client.id)" class="btn btn-success">Update</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="">
+    <button (click)="addClient()" class="btn btn-success">Add</button>
+  </div>
+</div>

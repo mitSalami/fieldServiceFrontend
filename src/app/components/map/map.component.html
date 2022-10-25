@@ -1,0 +1,14 @@
+<div class="container-fluid min-vh-100 d-flex flex-column">
+    <div class="row flex-grow-1">
+      <div class="col-md-2 border">
+        <mat-selection-list #clientsList [multiple]="false" class="list-group" [(ngModel)]="selectedClient" (ngModelChange)="onNgModelChange($event)">
+          <mat-list-option *ngFor="let client of clients" [value]="client">
+            {{client.name}}
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+      <div class="col-md-10 border">
+          <div class="map" id="map"></div>
+      </div>
+    </div>
+  </div>

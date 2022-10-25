@@ -1,0 +1,28 @@
+<h1>Mitarbeiter</h1>
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Mitarbeiter</th>
+      <th>Telefonnummer</th>
+      <th>Adresse</th>
+      <th>Farbe</th>
+      <th>Anzahl Kunden</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.name}}</td>
+      <td>{{employee.phoneNumber}}</td>
+      <td>{{employee.adresse}}</td>
+      <td>{{employee.color}}</td>
+      <td>{{employee.clientList}}</td>
+      <td><button (click)="updateEmployee(employee.id)" class="btn btn-success">Update</button></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="">
+    <button (click)="addEmployee()" class="btn btn-success">Add</button>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<h1>Mitarbeiter</h1>
+<div class="container">
+  <form (ngSubmit)="!clientForm.invalid && saveEmployee()" #clientForm="ngForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Placeholder">
+  </mat-form-field>
+
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>
